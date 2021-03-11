@@ -15,7 +15,7 @@
   \**********************/
 /***/ (() => {
 
-eval("\n\n//# sourceURL=webpack://weather-app/./src/index.js?");
+eval("const containerForm = document.querySelector('[container-form]');\nconst userEntry = document.querySelector('[new-entry]');\nlet input = 'Dhaka'\n\ncontainerForm.addEventListener('submit', (e) => {\n    e.preventDefault();\n    input = userEntry.value;\n    console.log(input);\n    userEntry.value = '';\n  \n})\n\n//# sourceURL=webpack://weather-app/./src/index.js?");
 
 /***/ })
 
