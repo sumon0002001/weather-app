@@ -21,7 +21,50 @@
     <title>Weather App</title>
   </head>
   <body>
-    <h1>Hello, world!</h1>
+    <div class="split info">
+        <div class="centered">
+            <h2 id="city" cityName></h2>
+            <h6 date.time></h6>
+            <div></div>
+            <img src="" alt="">
+            <p></p>
+            <div>
+                <div></div>
+                <div></div>
+                <div></div>
+
+            </div>
+        </div>
+    </div>
+    <div class="split input">
+        <div class="centered">
+            <div>
+                <h1>Current Weather</h1>
+                <h5>Search Location</h5>
+                <button><i>Location</i></button>
+                <form container-form>
+                    <input 
+                    type="text"
+                    placeholder="City or Zip code"
+                    id=""
+                    new-entry
+                    required
+                    >
+                </form>
+                <label for="" class="switch">
+                    <input type="checkbox" switch>
+                    <span>
+                        <div>
+                            <span>C</span>
+                            <span>F</span>
+                        </div>
+                    </span>
+                </label>
+
+            </div>
+            <span>Switch between Celsius/Farenheit</span>
+        </div>
+    </div>
 
     <!-- Optional JavaScript -->
     <script src="main.js"></script>
