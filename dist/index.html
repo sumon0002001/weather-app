@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="style.css">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
 
      <!-- Bootstrap CSS -->
     <link rel="preconnect" href="https://fonts.gstatic.com" />
@@ -25,35 +25,34 @@
         <div class="centered">
             <h2 id="city" cityName></h2>
             <h6 date.time></h6>
-            <div></div>
-            <img src="" alt="">
-            <p></p>
-            <div>
-                <div></div>
-                <div></div>
-                <div></div>
-
+            <div id="temperature" cityTemperature></div>
+            <img src="" alt="" id="image">
+            <p id="cityWeather" cityWeather></p>
+            <div id="weatherInfo">
+                <div id="feeling" tempFeeling></div>
+                <div id="humidity" humidity></div>
+                <div id="wind" wind></div>
             </div>
         </div>
     </div>
     <div class="split input">
         <div class="centered">
-            <div>
+            <div id="form-container">
                 <h1>Current Weather</h1>
                 <h5>Search Location</h5>
-                <button><i>Location</i></button>
+                <button class="location-button" location-button><i class="material-icons">location_on</i></button>
                 <form container-form>
                     <input 
                     type="text"
                     placeholder="City or Zip code"
-                    id=""
+                    id="search"
                     new-entry
                     required
                     >
                 </form>
                 <label for="" class="switch">
                     <input type="checkbox" switch>
-                    <span>
+                    <span class="slider round">
                         <div>
                             <span>C</span>
                             <span>F</span>
