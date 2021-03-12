@@ -17,6 +17,7 @@ body {
   background-repeat: no-repeat;
   overflow: hidden;
   outline: none;
+  cursor: pointer;
 }
 
 .material-icons {

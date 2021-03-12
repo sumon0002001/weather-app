@@ -29,3 +29,12 @@ toCelsius = (temp)  => {
   return temp;
 }
   
+clear = () => {
+  userEntry.value = '';
+}
+
+locButton.addEventListener('click', (e) => {
+    e.preventDefault();
+    console.log("hello");
+})
+
