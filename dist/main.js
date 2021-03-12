@@ -15,7 +15,7 @@
   \**********************/
 /***/ (() => {
 
-eval("const containerForm = document.querySelector('[container-form]');\nconst userEntry = document.querySelector('[new-entry]');\nlet input = 'Dhaka'\n\ncontainerForm.addEventListener('submit', (e) => {\n    e.preventDefault();\n    input = userEntry.value;\n    console.log(input);\n    userEntry.value = '';\n  \n})\n\n//# sourceURL=webpack://weather-app/./src/index.js?");
+eval("const containerForm = document.querySelector('[container-form]');\n  const userEntry = document.querySelector('[new-entry]');\n  const toggleSwitch = document.querySelector('[switch]');\n  const locButton = document.querySelector('[location-button]');\n  let input = 'Dhaka';\n  let searchTerm;\n\nkelvinToFahrenheit = (temp) => {\n  temp = parseFloat(temp);\n  temp = Math.round(((temp = temp - 273.15) * 9) / 5 + 32);\n  return temp;\n}\n\nkelvinToCelcius = (temp) => {\n  temp = parseFloat(temp);\n  temp = Math.round(temp = temp -273.15);\n  return temp;\n}\n\ntoFahrenheit = (temp) => {\n  temp = parseFloat(temp);\n  temp = Math.round((temp = temp * 1.8 + 32));\n  return temp;\n}\n\ntoCelsius = (temp)  => {\n  temp = parseFloat(temp);\n  temp = Math.round((temp = (temp - 32) * (5 / 9)));\n  return temp;\n}\n  \n\n//# sourceURL=webpack://weather-app/./src/index.js?");
 
 /***/ })
 
