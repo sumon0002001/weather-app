@@ -5,7 +5,7 @@ const containerForm = document.querySelector('[container-form]');
   let input = 'Dhaka';
   let searchTerm;
 
-getLocalTime = (data) => {
+var getLocalTime = (data) => {
     let date = new Date();
     let time = date.getTime();
     let localOffset = date.getTimezoneOffset() * 60000;
@@ -15,31 +15,31 @@ getLocalTime = (data) => {
     return localTimeDate.toLocaleString();
   }
 
-kelvinToFahrenheit = (temp) => {
+var kelvinToFahrenheit = (temp) => {
   temp = parseFloat(temp);
   temp = Math.round(((temp = temp - 273.15) * 9) / 5 + 32);
   return temp;
 }
 
-kelvinToCelcius = (temp) => {
+var kelvinToCelcius = (temp) => {
   temp = parseFloat(temp);
   temp = Math.round(temp = temp -273.15);
   return temp;
 }
 
-toFahrenheit = (temp) => {
+var toFahrenheit = (temp) => {
   temp = parseFloat(temp);
   temp = Math.round((temp = temp * 1.8 + 32));
   return temp;
 }
 
-toCelsius = (temp)  => {
+var toCelsius = (temp)  => {
   temp = parseFloat(temp);
   temp = Math.round((temp = (temp - 32) * (5 / 9)));
   return temp;
 }
   
-clear = () => {
+var clear = () => {
   userEntry.value = '';
 }
 
@@ -174,5 +174,5 @@ displayWeather = (data) => {
       }, 150);
     }
   });
-}
+};
 getWeather(input);
