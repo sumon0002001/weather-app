@@ -2,8 +2,8 @@
     "env": {
       "browser": true,
       "es6": true,
-      "jest": true,
-      "FORCE_COLOR": 1
+      "jest": true
+      
     },
     "parser": "babel-eslint",
     "parserOptions": {
