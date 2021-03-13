@@ -45,7 +45,24 @@ clear = () => {
 
 locButton.addEventListener('click', (e) => {
   e.preventDefault();
-  console.log("hello");
+  const successCallback = (location) => {
+    let userLocation = `${
+      'lat=' + location.coords.latitude + '&lon=' + location.coords.longitude
+    }`;
+    getWeather(userLocation);
+  };
+  const errorCallback = (error) => {
+    alert(error);
+  };
+  navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
+});
+
+containerForm.addEventListener('submit', (event) => {
+  event.preventDefault();
+  input = userEntry.value;
+
+  getWeather(input);
+  clear();
 })
 
 isANumber = (input) => {
@@ -83,21 +100,22 @@ async function getWeather(input) {
 displayWeather = (data) => {
   switch (data.weather[0].main) {
     case 'Clear':
-      document.body.style.backgroundImage = 'url("./images/clear.jpg")';
+      document.body.style.backgroundImage = 'url("../images/clear.jpg")';
       break;
     case 'Clouds':
-      document.body.style.backgroundImage = 'url("./images/cloudy.jpg")';
+      document.body.style.backgroundImage = 'url("../images/cloudy.jpg")';
       break;
     case 'Rain':
     case 'Drizzle':
     case 'Mist':
-      document.body.style.backgroundImage ='url("./images/rain.jpg")';
+    case 'Haze':
+      document.body.style.backgroundImage ='url("../images/rain.jpg")';
       break;
     case 'Thunderstrom':
-      document.body.style.backgroundImage = 'url("./images/thunderstrom.jpg")';
+      document.body.style.backgroundImage = 'url("../images/thunderstrom.jpg")';
       break;
     case 'Snow':
-      document.body.style.backgroundImage = 'url("./images/snow.jpg")';
+      document.body.style.backgroundImage = 'url("../images/snow.jpg")';
       break;
     default:
       break;
