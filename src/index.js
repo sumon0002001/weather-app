@@ -47,13 +47,13 @@ const clear = () => {
 };
 
 const typeOfQuery = (input) => {
-  if(!isNaN(input) && containsNumber(input)) {
+  if (containsNumber(input)) {
     searchTerm = input;
   } else if (isANumber(input) && input.length <= 5) {
     searchTerm = `${'zip='}${input}`;
   } else {
     searchTerm = `${'q='}${input}`;
-  };
+  }
 };
 
 async function getWeather(input) {
@@ -61,13 +61,13 @@ async function getWeather(input) {
   try {
     const response = await fetch(
       `https://api.openweathermap.org/data/2.5/weather?${searchTerm}&appid=49257f6591cfc3ed8daf0b5970d519cb&units=standard`,
-      { mode: 'cors'}
+      { mode: 'cors' },
     );
     const data = await response.json();
     displayWeather(data);
   } catch (err) {
-      alert(err);
-    }
+    return err;
+  }
 }
 
 locButton.addEventListener('click', (e) => {
@@ -89,11 +89,11 @@ containerForm.addEventListener('submit', (event) => {
   clear();
 });
 
-isANumber = (input) => {
+const isANumber = (input) => {
   return !/\D/.test(input);
 };
 
-containsNumber = (input) => {
+const containsNumber = (input) => {
   return /\d/.test(input);
 };
 
