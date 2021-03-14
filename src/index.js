@@ -20,71 +20,31 @@ const getLocalTime = (data) => {
 
 const kelvinToFahrenheit = (temp) => {
   temp = parseFloat(temp);
-  temp = Math.round(((temp -=273.15) * 9) / 5 + 32);
+  temp = Math.round(((temp -= 273.15) * 9) / 5 + 32);
   return temp;
-}
+};
 
 const kelvinToCelcius = (temp) => {
   temp = parseFloat(temp);
   temp = Math.round(temp -= 273.15);
   return temp;
-}
+};
 
 const toFahrenheit = (temp) => {
   temp = parseFloat(temp);
   temp = Math.round((temp = temp * 1.8 + 32));
   return temp;
-}
+};
 
-const toCelsius = (temp)  => {
+const toCelsius = (temp) => {
   temp = parseFloat(temp);
   temp = Math.round((temp = (temp - 32) * (5 / 9)));
   return temp;
-}
-  
+};
+
 const clear = () => {
   userEntry.value = '';
-}
-
-locButton.addEventListener('click', (e) => {
-  e.preventDefault();
-  const successCallback = (location) => {
-    let userLocation = `${
-      'lat=' + location.coords.latitude + '&lon=' + location.coords.longitude
-    }`;
-    getWeather(userLocation);
-  };
-  const errorCallback = (error) => {
-    return;
-  };
-  navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
-});
-
-containerForm.addEventListener('submit', (event) => {
-  event.preventDefault();
-  input = userEntry.value;
-
-  getWeather(input);
-  clear();
-})
-
-isANumber = (input) => {
-  return !/\D/.test(input);
-}
-
-containsNumber = (input) => {
-  return /\d/.test(input);
-}
-
-typeOfQuery = (input) => {
-  if(!isNaN(input) && containsNumber(input)) {
-    searchTerm = input;
-  } else if (isANumber(input) && input.length <= 5) {
-    searchTerm = `${'zip='}${input}`;
-  } else {
-    searchTerm = `${'q='}${input}`;
-  }
-}
+};
 
 async function getWeather(input) {
   typeOfQuery(input);
@@ -99,6 +59,43 @@ async function getWeather(input) {
       alert(err);
     }
 }
+
+locButton.addEventListener('click', (e) => {
+  e.preventDefault();
+  const successCallback = (location) => {
+    const userLocation = `${
+      'lat=' + location.coords.latitude + '&lon=' + location.coords.longitude
+    }`;
+    getWeather(userLocation);
+  };
+  navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
+});
+
+containerForm.addEventListener('submit', (event) => {
+  event.preventDefault();
+  input = userEntry.value;
+
+  getWeather(input);
+  clear();
+});
+
+isANumber = (input) => {
+  return !/\D/.test(input);
+};
+
+containsNumber = (input) => {
+  return /\d/.test(input);
+};
+
+typeOfQuery = (input) => {
+  if(!isNaN(input) && containsNumber(input)) {
+    searchTerm = input;
+  } else if (isANumber(input) && input.length <= 5) {
+    searchTerm = `${'zip='}${input}`;
+  } else {
+    searchTerm = `${'q='}${input}`;
+  };
+};
 
 displayWeather = (data) => {
   switch (data.weather[0].main) {
@@ -122,7 +119,7 @@ displayWeather = (data) => {
       break;
     default:
       break;
-  }
+  };
 
   const cityName = document.querySelector('[cityName]');
   const cityTemperature =document.querySelector('[cityTemperature]');
@@ -148,7 +145,7 @@ displayWeather = (data) => {
     temp = kelvinToCelcius(temp);
     tempFeel = kelvinToCelcius(tempFeel);
     cityTemperature.innerHTML = `${temp + '&degC'}`;
-  }
+  };
 
   weatherImg.src = `http://openweathermap.org/img/wn/${data.weather[0].icon}.png`;
 
