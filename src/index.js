@@ -8,7 +8,7 @@ const locButton = document.querySelector('[location-button]');
 let input = 'Dhaka';
 let searchTerm;
 
-let getLocalTime = (data) => {
+const getLocalTime = (data) => {
   const date = new Date();
   const time = date.getTime();
   const localOffset = date.getTimezoneOffset() * 60000;
@@ -18,31 +18,31 @@ let getLocalTime = (data) => {
   return localTimeDate.toLocaleString();
 };
 
-let kelvinToFahrenheit = (temp) => {
+const kelvinToFahrenheit = (temp) => {
   temp = parseFloat(temp);
-  temp = Math.round(((temp = temp - 273.15) * 9) / 5 + 32);
+  temp = Math.round(((temp -=273.15) * 9) / 5 + 32);
   return temp;
 }
 
-let kelvinToCelcius = (temp) => {
+const kelvinToCelcius = (temp) => {
   temp = parseFloat(temp);
-  temp = Math.round(temp = temp -273.15);
+  temp = Math.round(temp -= 273.15);
   return temp;
 }
 
-let toFahrenheit = (temp) => {
+const toFahrenheit = (temp) => {
   temp = parseFloat(temp);
   temp = Math.round((temp = temp * 1.8 + 32));
   return temp;
 }
 
-let toCelsius = (temp)  => {
+const toCelsius = (temp)  => {
   temp = parseFloat(temp);
   temp = Math.round((temp = (temp - 32) * (5 / 9)));
   return temp;
 }
   
-let clear = () => {
+const clear = () => {
   userEntry.value = '';
 }
 
