@@ -1,4 +1,5 @@
-/*eslint-env es6*/
+/* eslint no-useless-concat: "error" */
+/* eslint-env es6 */
 
 const containerForm = document.querySelector('[container-form]');
 const userEntry = document.querySelector('[new-entry]');
@@ -7,41 +8,41 @@ const locButton = document.querySelector('[location-button]');
 let input = 'Dhaka';
 let searchTerm;
 
-var getLocalTime = (data) => {
-  let date = new Date();
-  let time = date.getTime();
-  let localOffset = date.getTimezoneOffset() * 60000;
-  let utc = time + localOffset;
-  let localTime = utc + 1000 * data;
-  let localTimeDate = new Date(localTime);
+let getLocalTime = (data) => {
+  const date = new Date();
+  const time = date.getTime();
+  const localOffset = date.getTimezoneOffset() * 60000;
+  const utc = time + localOffset;
+  const localTime = utc + 1000 * data;
+  const localTimeDate = new Date(localTime);
   return localTimeDate.toLocaleString();
-}
+};
 
-var kelvinToFahrenheit = (temp) => {
+let kelvinToFahrenheit = (temp) => {
   temp = parseFloat(temp);
   temp = Math.round(((temp = temp - 273.15) * 9) / 5 + 32);
   return temp;
 }
 
-var kelvinToCelcius = (temp) => {
+let kelvinToCelcius = (temp) => {
   temp = parseFloat(temp);
   temp = Math.round(temp = temp -273.15);
   return temp;
 }
 
-var toFahrenheit = (temp) => {
+let toFahrenheit = (temp) => {
   temp = parseFloat(temp);
   temp = Math.round((temp = temp * 1.8 + 32));
   return temp;
 }
 
-var toCelsius = (temp)  => {
+let toCelsius = (temp)  => {
   temp = parseFloat(temp);
   temp = Math.round((temp = (temp - 32) * (5 / 9)));
   return temp;
 }
   
-var clear = () => {
+let clear = () => {
   userEntry.value = '';
 }
 
@@ -54,7 +55,7 @@ locButton.addEventListener('click', (e) => {
     getWeather(userLocation);
   };
   const errorCallback = (error) => {
-    alert(error);
+    return;
   };
   navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
 });
