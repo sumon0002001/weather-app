@@ -46,6 +46,16 @@ const clear = () => {
   userEntry.value = '';
 };
 
+const typeOfQuery = (input) => {
+  if(!isNaN(input) && containsNumber(input)) {
+    searchTerm = input;
+  } else if (isANumber(input) && input.length <= 5) {
+    searchTerm = `${'zip='}${input}`;
+  } else {
+    searchTerm = `${'q='}${input}`;
+  };
+};
+
 async function getWeather(input) {
   typeOfQuery(input);
   try {
@@ -85,16 +95,6 @@ isANumber = (input) => {
 
 containsNumber = (input) => {
   return /\d/.test(input);
-};
-
-const typeOfQuery = (input) => {
-  if(!isNaN(input) && containsNumber(input)) {
-    searchTerm = input;
-  } else if (isANumber(input) && input.length <= 5) {
-    searchTerm = `${'zip='}${input}`;
-  } else {
-    searchTerm = `${'q='}${input}`;
-  };
 };
 
 const displayWeather = (data) => {
