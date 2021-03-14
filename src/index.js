@@ -1,19 +1,21 @@
+/*eslint-env es6*/
+
 const containerForm = document.querySelector('[container-form]');
-  const userEntry = document.querySelector('[new-entry]');
-  const toggleSwitch = document.querySelector('[switch]');
-  const locButton = document.querySelector('[location-button]');
-  let input = 'Dhaka';
-  let searchTerm;
+const userEntry = document.querySelector('[new-entry]');
+const toggleSwitch = document.querySelector('[switch]');
+const locButton = document.querySelector('[location-button]');
+let input = 'Dhaka';
+let searchTerm;
 
 var getLocalTime = (data) => {
-    let date = new Date();
-    let time = date.getTime();
-    let localOffset = date.getTimezoneOffset() * 60000;
-    let utc = time + localOffset;
-    let localTime = utc + 1000 * data;
-    let localTimeDate = new Date(localTime);
-    return localTimeDate.toLocaleString();
-  }
+  let date = new Date();
+  let time = date.getTime();
+  let localOffset = date.getTimezoneOffset() * 60000;
+  let utc = time + localOffset;
+  let localTime = utc + 1000 * data;
+  let localTimeDate = new Date(localTime);
+  return localTimeDate.toLocaleString();
+}
 
 var kelvinToFahrenheit = (temp) => {
   temp = parseFloat(temp);
