@@ -50,8 +50,8 @@ async function getWeather(input) {
   typeOfQuery(input);
   try {
     const response = await fetch(
-    `https://api.openweathermap.org/data/2.5/weather?${searchTerm}&appid=49257f6591cfc3ed8daf0b5970d519cb&units=standard`,
-    { mode: 'cors' }
+      `https://api.openweathermap.org/data/2.5/weather?${searchTerm}&appid=49257f6591cfc3ed8daf0b5970d519cb&units=standard`,
+      { mode: 'cors'}
     );
     const data = await response.json();
     displayWeather(data);
@@ -87,7 +87,7 @@ containsNumber = (input) => {
   return /\d/.test(input);
 };
 
-typeOfQuery = (input) => {
+const typeOfQuery = (input) => {
   if(!isNaN(input) && containsNumber(input)) {
     searchTerm = input;
   } else if (isANumber(input) && input.length <= 5) {
@@ -97,7 +97,7 @@ typeOfQuery = (input) => {
   };
 };
 
-displayWeather = (data) => {
+const displayWeather = (data) => {
   switch (data.weather[0].main) {
     case 'Clear':
       document.body.style.backgroundImage = 'url("../images/clear.jpg")';
