@@ -119,7 +119,7 @@ const displayWeather = (data) => {
       break;
     default:
       break;
-  };
+  }
 
   const cityName = document.querySelector('[cityName]');
   const cityTemperature =document.querySelector('[cityTemperature]');
@@ -145,7 +145,7 @@ const displayWeather = (data) => {
     temp = kelvinToCelcius(temp);
     tempFeel = kelvinToCelcius(tempFeel);
     cityTemperature.innerHTML = `${temp + '&degC'}`;
-  };
+  }
 
   weatherImg.src = `http://openweathermap.org/img/wn/${data.weather[0].icon}.png`;
 
