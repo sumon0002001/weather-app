@@ -1,1 +1,105 @@
-!function(e){var t={};function n(r){if(t[r])return t[r].exports;var a=t[r]={i:r,l:!1,exports:{}};return e[r].call(a.exports,a,a.exports,n),a.l=!0,a.exports}n.m=e,n.c=t,n.d=function(e,t,r){n.o(e,t)||Object.defineProperty(e,t,{enumerable:!0,get:r})},n.r=function(e){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(e,"__esModule",{value:!0})},n.t=function(e,t){if(1&t&&(e=n(e)),8&t)return e;if(4&t&&"object"==typeof e&&e&&e.__esModule)return e;var r=Object.create(null);if(n.r(r),Object.defineProperty(r,"default",{enumerable:!0,value:e}),2&t&&"string"!=typeof e)for(var a in e)n.d(r,a,function(t){return e[t]}.bind(null,a));return r},n.n=function(e){var t=e&&e.__esModule?function(){return e.default}:function(){return e};return n.d(t,"a",t),t},n.o=function(e,t){return Object.prototype.hasOwnProperty.call(e,t)},n.p="",n(n.s=0)}([function(e,t,n){"use strict";n.r(t);const r=document.querySelector(".control"),a=document.getElementById("cityInput"),o=document.getElementById("warn"),i=document.querySelector(".icon"),c=document.querySelector(".weather-status"),s=document.querySelector(".main-temp"),u=document.querySelectorAll(".location>span"),l=document.querySelectorAll(".more-info > p"),m=document.getElementById("weather-forecast"),d=document.querySelector(".date"),p=document.getElementById("switchF"),f=document.getElementById("degrees");var y=(e,t=null)=>{document.createElement("li").classList.add("city"),u[0].innerHTML=e.name,u[1].innerHTML=e.country,d.innerHTML=new Date,s.innerHTML=`<i class='fa fa-thermometer-three-quarters'></i>${Math.round(e.temp)}°C`,i.src=`https://openweathermap.org/img/wn/${e.icon}@2x.png`,c.innerHTML=e.description;let n=!1;l[0].innerHTML=`\n  <span class='b-feel'>Feels Like</span>\n  ${Math.round(e.feelsLike)}°C\n  `,l[1].innerHTML=`\n  <i class='fa fa-temperature-high'></i>\n  <span class='b-feel'>Max temp</span>${Math.round(e.tempMax)}°C, <i class='fa fa-temperature-low'></i>\n  <span class='b-feel'>Min temp</span>${Math.round(e.tempMin)}°C\n  `,f.style.display="block",f.addEventListener("click",()=>{((e,r,a)=>{const o=`<i class='fa fa-thermometer-three-quarters'></i>${Math.round(a)}°C`,i=`<i class='fa fa-thermometer-three-quarters'></i>${Math.round(t)}°F`;n?(r.innerHTML=o,e.innerHTML="Switch to °F",n=!1):(r.innerHTML=i,e.innerHTML="Switch to °C",n=!0)})(f,p,e.temp)}),m.className="show"};var h=e=>{const{description:t,icon:n,main:r}=e.weather[0],{temp:a}=e.main,[o,i]=[e.name,e.sys.country],{dateTime:c}=Date(e.dt);return{description:t,icon:n,main:r,temp:a,name:o,country:i,tempMax:e.main.temp_max,tempMin:e.main.temp_min,feelsLike:e.main.feels_like,dateTime:c}};r.addEventListener("submit",e=>{e.preventDefault();const t=a.value,n=async(e,t)=>(await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${e}&appid=034b1e6439b4af8304cfb5a8734b6e14&units=${t}`)).json();Promise.all([n(t,"metric"),n(t,"imperial")]).then(([e,t])=>{y(h(e),h(t).temp)}).catch(()=>{o.textContent="I Couldn't fetch weather for this city 😩."}),o.textContent="",r.reset(),a.focus(),(e=>{const t=document.createElement("script");t.src=`https://api.flickr.com/services/feeds/photos_public.gne?format=json&jsoncallback=abc&tags=${e}`,document.head.appendChild(t),window.abc=function(e){const t=document.querySelector("body");t.style.background=`url('${e.items[2].media.m}') no-repeat`,t.style.backgroundSize="cover"}})(t)})}]);
+/*
+ * ATTENTION: The "eval" devtool has been used (maybe by default in mode: "development").
+ * This devtool is neither made for production nor for readable output files.
+ * It uses "eval()" calls to create a separate source file in the browser devtools.
+ * If you are trying to read the output file, select a different devtool (https://webpack.js.org/configuration/devtool/)
+ * or disable the default devtool with "devtool: false".
+ * If you are looking for production-ready output files, see mode: "production" (https://webpack.js.org/configuration/mode/).
+ */
+/******/ (() => { // webpackBootstrap
+/******/ 	"use strict";
+/******/ 	var __webpack_modules__ = ({
+
+/***/ "./src/index.js":
+/*!**********************!*\
+  !*** ./src/index.js ***!
+  \**********************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _modules_dom__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/dom */ \"./src/modules/dom.js\");\n/* harmony import */ var _modules_parsejson__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/parsejson */ \"./src/modules/parsejson.js\");\n\n\n\n\nconst apiKey = '06d4a40aeec62ece3ab14b5fc03c4ec0';\n_modules_dom__WEBPACK_IMPORTED_MODULE_0__.searchForm.addEventListener('submit', event => {\n  event.preventDefault();\n  const currentCity = _modules_dom__WEBPACK_IMPORTED_MODULE_0__.checkCity.value;\n  const fetchWeather = async (city, unit) => {\n    const response = await fetch(\n      `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${unit}`,\n    );\n    return response.json();\n  };\n\n  Promise.all([\n    fetchWeather(currentCity, 'metric'),\n    fetchWeather(currentCity, 'imperial'),\n  ])\n    .then(([celsiusData, FahrenheitData]) => {\n      (0,_modules_dom__WEBPACK_IMPORTED_MODULE_0__.default)((0,_modules_parsejson__WEBPACK_IMPORTED_MODULE_1__.default)(celsiusData), (0,_modules_parsejson__WEBPACK_IMPORTED_MODULE_1__.default)(FahrenheitData).temp);\n    })\n    .catch(() => {\n      _modules_dom__WEBPACK_IMPORTED_MODULE_0__.errorMessage.textContent = \"I Couldn't fetch weather for this city 😩.\";\n    });\n  _modules_dom__WEBPACK_IMPORTED_MODULE_0__.errorMessage.textContent = '';\n  _modules_dom__WEBPACK_IMPORTED_MODULE_0__.searchForm.reset();\n  _modules_dom__WEBPACK_IMPORTED_MODULE_0__.checkCity.focus();\n  (0,_modules_dom__WEBPACK_IMPORTED_MODULE_0__.selectImage)(currentCity);\n});\n\n\n//# sourceURL=webpack://weather-app/./src/index.js?");
+
+/***/ }),
+
+/***/ "./src/modules/dom.js":
+/*!****************************!*\
+  !*** ./src/modules/dom.js ***!
+  \****************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"searchForm\": () => (/* binding */ searchForm),\n/* harmony export */   \"checkCity\": () => (/* binding */ checkCity),\n/* harmony export */   \"errorMessage\": () => (/* binding */ errorMessage),\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__),\n/* harmony export */   \"selectImage\": () => (/* binding */ selectImage)\n/* harmony export */ });\nconst searchForm = document.querySelector('.control');\nconst checkCity = document.getElementById('cityInput');\nconst errorMessage = document.getElementById('warn');\n\nconst weatherImg = document.querySelector('.icon');\nconst desc = document.querySelector('.weather-status');\nconst currTemp = document.querySelector('.main-temp');\nconst currCity = document.querySelectorAll('.location>span');\nconst moreAbt = document.querySelectorAll('.more-info > p');\nconst displayCity = document.getElementById('weather-forecast');\nconst currDate = document.querySelector('.date');\nconst c = document.getElementById('switchF');\nconst d = document.getElementById('degrees');\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((data, tempF = null) => {\n  const list = document.createElement('li');\n  list.classList.add('city');\n  currCity[0].innerHTML = data.name;\n  currCity[1].innerHTML = data.country;\n  currDate.innerHTML = new Date();\n  currTemp.innerHTML = `<i class='fa fa-thermometer-three-quarters'></i>${Math.round(\n    data.temp,\n  )}°C`;\n  weatherImg.src = `https://openweathermap.org/img/wn/${data.icon}@2x.png`;\n  desc.innerHTML = data.description;\n  let currTempF = false;\n  const toggleTempF = (el, cc, tempInfo) => {\n    const cel = `<i class='fa fa-thermometer-three-quarters'></i>${Math.round(\n      tempInfo,\n    )}°C`;\n    const elTempF = `<i class='fa fa-thermometer-three-quarters'></i>${Math.round(\n      tempF,\n    )}°F`;\n    if (currTempF) {\n      cc.innerHTML = cel;\n      el.innerHTML = 'Switch to °F';\n      currTempF = false;\n    } else {\n      cc.innerHTML = elTempF;\n      el.innerHTML = 'Switch to °C';\n      currTempF = true;\n    }\n  };\n  moreAbt[0].innerHTML = `\n  <span class='b-feel'>Feels Like</span>\n  ${Math.round(data.feelsLike)}°C\n  `;\n  moreAbt[1].innerHTML = `\n  <i class='fa fa-temperature-high'></i>\n  <span class='b-feel'>Max temp</span>${Math.round(\n    data.tempMax,\n  )}°C, <i class='fa fa-temperature-low'></i>\n  <span class='b-feel'>Min temp</span>${Math.round(data.tempMin)}°C\n  `;\n  d.style.display = 'block';\n  d.addEventListener('click', () => {\n    toggleTempF(d, c, data.temp);\n  });\n  displayCity.className = 'show';\n});\n\nconst selectImage = (cityName) => {\n  const script = document.createElement('script');\n  // script.src = `https://api.flickr.com/services/feeds/photos_public.gne?format=json&jsoncallback=abc&tags=${cityName}`;\n  document.head.appendChild(script);\n  window.abc = function abc(data) {\n    const body = document.querySelector('body');\n    body.style.background = `url('${data.items[2].media.m}') no-repeat`;\n    body.style.backgroundSize = 'cover';\n  };\n};\n\n\n//# sourceURL=webpack://weather-app/./src/modules/dom.js?");
+
+/***/ }),
+
+/***/ "./src/modules/parsejson.js":
+/*!**********************************!*\
+  !*** ./src/modules/parsejson.js ***!
+  \**********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((json) => {\n  const { description, icon, main } = json.weather[0];\n  const { temp } = json.main;\n  const [name, country] = [json.name, json.sys.country];\n  const { dateTime } = Date(json.dt);\n  return {\n    description,\n    icon,\n    main,\n    temp,\n    name,\n    country,\n    tempMax: json.main.temp_max,\n    tempMin: json.main.temp_min,\n    feelsLike: json.main.feels_like,\n    dateTime,\n  };\n});\n\n\n//# sourceURL=webpack://weather-app/./src/modules/parsejson.js?");
+
+/***/ })
+
+/******/ 	});
+/************************************************************************/
+/******/ 	// The module cache
+/******/ 	var __webpack_module_cache__ = {};
+/******/ 	
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/ 		// Check if module is in cache
+/******/ 		if(__webpack_module_cache__[moduleId]) {
+/******/ 			return __webpack_module_cache__[moduleId].exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = __webpack_module_cache__[moduleId] = {
+/******/ 			// no module.id needed
+/******/ 			// no module.loaded needed
+/******/ 			exports: {}
+/******/ 		};
+/******/ 	
+/******/ 		// Execute the module function
+/******/ 		__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
+/******/ 	
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/ 	
+/************************************************************************/
+/******/ 	/* webpack/runtime/define property getters */
+/******/ 	(() => {
+/******/ 		// define getter functions for harmony exports
+/******/ 		__webpack_require__.d = (exports, definition) => {
+/******/ 			for(var key in definition) {
+/******/ 				if(__webpack_require__.o(definition, key) && !__webpack_require__.o(exports, key)) {
+/******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
+/******/ 				}
+/******/ 			}
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/hasOwnProperty shorthand */
+/******/ 	(() => {
+/******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/make namespace object */
+/******/ 	(() => {
+/******/ 		// define __esModule on exports
+/******/ 		__webpack_require__.r = (exports) => {
+/******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 			}
+/******/ 			Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/************************************************************************/
+/******/ 	
+/******/ 	// startup
+/******/ 	// Load entry module and return exports
+/******/ 	// This entry module can't be inlined because the eval devtool is used.
+/******/ 	var __webpack_exports__ = __webpack_require__("./src/index.js");
+/******/ 	
+/******/ })()
+;

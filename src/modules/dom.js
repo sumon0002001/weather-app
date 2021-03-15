@@ -61,7 +61,6 @@ export default (data, tempF = null) => {
 
 export const selectImage = (cityName) => {
   const script = document.createElement('script');
-  script.src = `https://api.flickr.com/services/feeds/photos_public.gne?format=json&jsoncallback=abc&tags=${cityName}`;
   document.head.appendChild(script);
   window.abc = function abc(data) {
     const body = document.querySelector('body');
