@@ -59,7 +59,7 @@ export default (data, tempF = null) => {
   displayCity.className = 'show';
 };
 
-export const selectImage = (cityName) => {
+export const selectImage = () => {
   const script = document.createElement('script');
   document.head.appendChild(script);
   window.abc = function abc(data) {
