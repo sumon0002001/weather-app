@@ -17,7 +17,7 @@ My project can be found at 'https://github.com/sumon0002001/weather-app.git'
 
 ## Live Demo
 
-You can find the demo [here](https://rawcdn.githack.com/sumon0002001/weather-app/f6c16fa0bd493ae0541c722f2fb799c15ea6f641/dist/index.html)
+You can find the demo [here](https://rawcdn.githack.com/sumon0002001/weather-app/0f214ea11219aeb47b2e95472b2b3cc3091c543d/dist/index.html)
 
 
 
