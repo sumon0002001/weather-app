@@ -33,10 +33,12 @@ export default (data, tempF = null) => {
     )}°F`;
     if (currTempF) {
       cc.innerHTML = cel;
+      currTemp.innerHTML = cel;
       el.innerHTML = 'Switch to °F';
       currTempF = false;
     } else {
       cc.innerHTML = elTempF;
+      currTemp.innerHTML = elTempF;
       el.innerHTML = 'Switch to °C';
       currTempF = true;
     }
