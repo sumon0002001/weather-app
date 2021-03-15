@@ -36,6 +36,13 @@ You can find the demo [here](https://rawcdn.githack.com/sumon0002001/weather-app
 
 Open related file by using text editor.
 
+# Usage
+- Add a .env file on the root folder of your project with all your API keys as the example below
+- API_KEY="'your open weather key'"
+- run npm run build on your terminal to rebuild your public keys
+- Change directory to dist folder
+- Open index.html on your preferred browser
+
 
 
 
