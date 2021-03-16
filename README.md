@@ -1,63 +1,49 @@
 # weather-app
-I build a website to show the temperature of the particular city.
-- To use the app, you have to sign in or log in
-- Authenticated user:
-  - can create articles categories
-  - can create articles and link those articles to many categories
-  - can comment on article
-  - can vote an article
-- The homepage shows a featured article (who has the biggest number of votes), and the list of all the categories in order of priority
-- The category page show all the articles for a category
-- The article page shows the content of an article.
+Weather app in JavaScript is a practice project, which includes managing the dynamically DOM manipulation and asynchronous access to public API using async await methods and promises. I used Javascript, HTML5, CSS3, and Open Weather API to implement it.
 
 ## Project screenshot
-![screenshot](./img.png)
+![screenshot](screenshot.png)
 
 ## 🔨 Built in
 
-- Ruby on Rails 6.0.3
-- Bootstrap 4
+- HTML5
+- CSS3
+- Open Weather API
+- JavaScript
 
-## 🚀 Our Project
+## 🚀 My Project
 
-My project can be found at https://github.com/sumon0002001/rorcapstone_lifestyle
+My project can be found at 'https://github.com/sumon0002001/weather-app.git'
 
 ## Live Demo
 
-You can find the demo [here](https://agile-falls-81971.herokuapp.com/)
+You can find the demo [here](https://rawcdn.githack.com/sumon0002001/weather-app/0f214ea11219aeb47b2e95472b2b3cc3091c543d/dist/index.html)
 
-## Video Link
 
-You can find the presentation [here](https://www.loom.com/share/bbea73c1085e4edfa17b1e5f8c9542cb)
 
-## To run the project in local
+# Getting Started
+- To get a local copy up and running follow these simple example steps.
 
-- clone the repository from here [repo link](https://github.com/sumon0002001/rorcapstone_lifestyle)
-- Open terminal and navigate to root folder (rorcapstone_lifestyle).
-- Once in root folder
-  - type: `rails s` in terminal and in browser
-  - run `bundle install`
-  - run `yarn install`
-  - run`rails db:create`
-  - run `rails db:migrate`
-  - type localhost:3000/ in address bar.
+- Prerequisites
+- Text Editor (VSCode is suggested.)
+- Setup
+- Install git
+- Open Terminal
+- Change directory to folder to download repository
+- Use cd <file-path>
+- Run git clone https://github.com/sumon0002001/weather-app.git
+- To make any change,
 
-## How to run the test suite
+Open related file by using text editor.
 
-I added validations and associations tests for User, Event and Attendance models.
-I added also integration tests for authentication and event creation
-Run these tests with those commands:
+# Usage
+- Add a .env file on the root folder of your project with all your API keys as the example below
+- API_KEY="'your open weather key'"
+- run npm run build on your terminal to rebuild your public keys
+- Change directory to dist folder
+- Open index.html on your preferred browser
 
-### unit tests
-- `rspec spec/user_spec.rb`
-- `rspec spec/category_spec.rb`
-- `rspec spec/article_spec.rb`
-- `rspec spec/vote_spec.rb`
-- `rspec spec/organization_spec.rb`
 
-### integration tests
-- `rspec spec/features/authenticate_user_spec.rb`
-- `rspec spec/features/create_category_spec.rb`
 
 
 
@@ -71,10 +57,7 @@ Run these tests with those commands:
 
 
 
-## Acknowledgement
 
-I have followed the 
-[design](https://www.behance.net/gallery/14554909/liFEsTlye-Mobile-version) given by [Nelson Sakwa](https://www.behance.net/sakwadesignstudio) in Behance
 
 ## 🤝 Contributing
 

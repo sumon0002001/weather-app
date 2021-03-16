@@ -1,0 +1,34 @@
+{
+  "name": "weather-app",
+  "version": "1.0.0",
+  "description": "I build a website to show the temperature of the particular city. - To use the app, you have to sign in or log in - Authenticated user:   - can create articles categories   - can create articles and link those articles to many categories   - can comment on article   - can vote an article - The homepage shows a featured article (who has the biggest number of votes), and the list of all the categories in order of priority - The category page show all the articles for a category - The article page shows the content of an article.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "webpack --mode development",
+    "build": "webpack --mode production",
+    "start": "webpack-dev-server --mode development --open"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sumon0002001/weather-app.git"
+  },
+  "author": "rawshan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sumon0002001/weather-app/issues"
+  },
+  "homepage": "https://github.com/sumon0002001/weather-app#readme",
+  "devDependencies": {
+    "babel-eslint": "^10.1.0",
+    "eslint": "^7.9.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-react": "^7.22.0",
+    "webpack": "^5.24.4",
+    "webpack-cli": "^4.5.0",
+    "webpack-dev-server": "^3.10.3"
+  },
+  "dependencies": {
+    "eslint-config-airbnb": "^18.2.1"
+  }
+}
